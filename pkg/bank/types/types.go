@@ -2,15 +2,19 @@ package types
 
 type Money int64
 
+type Category string
+
 type Currency string
 
-const (
-	TJS Currency = "TJS"
-	RUB Currency = "RUB"
-	USD Currency = "USD"
-)
-
 type PAN string
+
+type Status string
+
+const (
+	StatusOK Status = "OK"
+	StatusFail Status = "FAIL"
+	StatusInProgress Status = "INPRPGRESS"
+)
 
 type Card struct {
 	ID    int
@@ -21,4 +25,11 @@ type Card struct {
 	Color  string
 	Name    string
 	Active   bool
+}
+
+type Payment struct {
+	ID    int
+	Amount Money
+	Category Category
+	Status Status
 }
